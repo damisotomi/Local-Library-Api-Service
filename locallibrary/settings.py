@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-59h$8@##iq0!n!@jw3o)beza1)1of%u-7_-ek#pjk1*0%_8_+w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://sotomi-local-library-api.herokuapp.com/','http://127.0.0.1:5500/']
 
 
 # Application definition
