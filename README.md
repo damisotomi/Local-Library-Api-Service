@@ -21,7 +21,7 @@ Adding a number to each end point above takes you to the detail page of each ins
     "language": "https://sotomi-local-library-api.herokuapp.com/language/6"
 }
 
-Detail Explanation of each endpoint
+<p><strong>Detail Explanation of each endpoint </strong></p>
 Books/
 "books": "https://sotomi-local-library-api.herokuapp.com/books/",
 
