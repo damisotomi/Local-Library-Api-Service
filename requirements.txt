@@ -3,3 +3,5 @@ django==4.0.3
 django-debug-toolbar
 mysqlclient
 djangorestframework
+whitenoise
+gunicorn
