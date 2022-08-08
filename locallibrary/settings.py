@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,10 +88,6 @@ DATABASES = {
         'PASSWORD':'sotomisql'
     }
 }
-import dj_database_url
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -142,3 +139,5 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+django_heroku.settings(locals())
