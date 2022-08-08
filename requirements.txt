@@ -5,5 +5,3 @@ mysqlclient
 djangorestframework
 whitenoise
 gunicorn
-
-django-heroku
