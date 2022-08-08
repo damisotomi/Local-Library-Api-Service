@@ -77,13 +77,24 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'locallibrary',
+#         'HOST':'127.0.0.1',
+#         'USER':'root',
+#         'PASSWORD':'sotomisql'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'locallibrary',
-        'HOST':'127.0.0.1',
-        'USER':'root',
-        'PASSWORD':'sotomisql'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'da36o777bti256',
+        'HOST':'ec2-54-161-255-125.compute-1.amazonaws.com',
+        'USER':'dlfgayoqupstqz',
+        'PASSWORD':'d9c31d5a16611c3494887f971d95b6d1d1b6fbe53ac06f6149448fa4a9db56e1',
+        'PORT':'5432'
     }
 }
 
