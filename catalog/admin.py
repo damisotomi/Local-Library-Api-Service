@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import Language, Book, BookInstance, Author, Genre
 # Register your models here.
 
+admin.site.site_header ='Local Library Admin'
+admin.site.index_title='Admin'
+
 class BookInstanceInline(admin.TabularInline):
     model = BookInstance
     extra=0
