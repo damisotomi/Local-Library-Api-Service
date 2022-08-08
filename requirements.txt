@@ -5,6 +5,5 @@ mysqlclient
 djangorestframework
 whitenoise
 gunicorn
-# psycopg2   
-# dj_database_url
+
 django-heroku
