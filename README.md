@@ -58,3 +58,6 @@ This endpoint also accepts a post request and allows clients to add to the list 
 "language": "https://sotomi-local-library-api.herokuapp.com/language/6"
 This endpoint will return the detail page of an language instance  if it exist. it supports put and delte methods for all instances.
 
+
+![Capture](https://user-images.githubusercontent.com/67606934/183746291-333a2a57-b4ff-482a-a6b2-0a7a9f6516e6.PNG)
+
