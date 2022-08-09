@@ -1,4 +1,4 @@
-# Local-Library-Api-Service
+# <title>Local-Library-Api-Service</title>
 A library Api service that exposes 8 endpoints that allows get, post, put, patch and delete request methods for books, authors, genre and language
 
 Interact with the Api live at https://sotomi-local-library-api.herokuapp.com/
