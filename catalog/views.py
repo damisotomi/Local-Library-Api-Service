@@ -10,10 +10,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 class Book(ModelViewSet):
     queryset= Book.objects.select_related('author','language').prefetch_related('genre','related_name').all()
     serializer_class=BookSerializer
-    filter_backends=[DjangoFilterBackend,SearchFilter]
+    filter_backends=[DjangoFilterBackend,SearchFilter,OrderingFilter]
     filterset_fields=['author','genre','language']
     search_fields=['title','summary']
     ordering_fields=['title']
+
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
