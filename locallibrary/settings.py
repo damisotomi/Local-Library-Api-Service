@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-59h$8@##iq0!n!@jw3o)beza1)1of%u-7_-ek#pjk1*0%_8_+w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sotomi-local-library-api.herokuapp.com','http://127.0.0.1:5500/']
+ALLOWED_HOSTS = ['sotomi-local-library-api.herokuapp.com','http://127.0.0.1:5500/','127.0.0.1']
 
 
 # Application definition
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'locallibrary.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
