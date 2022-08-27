@@ -1,14 +1,16 @@
-from rest_framework.viewsets import ModelViewSet
 from .models import Book, BookInstance,Author, Genre,Language
 from .serializers import BookSerializer,AuthorSerializer,GenreSerializer,LanguageSerializer
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from rest_framework import status
-
+from django_filters.rest_framework import DjangoFilterBackend
 # Create your views here.
 
 class Book(ModelViewSet):
-    queryset= Book.objects.select_related('author','language').prefetch_related('genre').all()
+    queryset= Book.objects.select_related('author','language').prefetch_related('genre','related_name').all()
     serializer_class=BookSerializer
+    filter_backends=[DjangoFilterBackend]
+    filterset_fields=['author','genre','language']
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

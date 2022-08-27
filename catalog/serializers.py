@@ -59,4 +59,5 @@ class LanguageSerializer(serializers.ModelSerializer):
     number_of_books=serializers.SerializerMethodField('book_count')
 
     def book_count(self,language:models.Language):
-        return models.Book.objects.filter(language_id=language.id).count()
+        return language.language.count()
+        # return models.Book.objects.filter(language_id=language.id).count()

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'catalog.apps.CatalogConfig',
-    'debug_toolbar'
+    'debug_toolbar',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
