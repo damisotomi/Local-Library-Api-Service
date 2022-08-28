@@ -42,4 +42,7 @@ class ReviewViewSet(ModelViewSet):
 
     def get_queryset(self):
         return Review.objects.filter(book_id=self.kwargs['book_pk'])
+
+    def get_serializer_context(self):
+        return {'book_id':self.kwargs['book_pk']}
     

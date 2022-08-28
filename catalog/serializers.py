@@ -66,4 +66,8 @@ class LanguageSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.Review
-        fields=['id','name','description','book']
+        fields=['id','name','description']
+
+    def create(self, validated_data):
+        book_id=self.context['book_id']
+        return models.Review.objects.create(book_id=book_id,**validated_data)
