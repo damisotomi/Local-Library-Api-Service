@@ -7,14 +7,14 @@ from django.urls import reverse
 class Genre(models.Model):
     """This model stores info about the different genre categories that are availa
     ble for all books eg science fiction, drama etc"""
-    name=models.CharField(max_length=200,help_text="Enter a book genre(e.g, Science Fiction)")
+    name=models.CharField(max_length=255,help_text="Enter a book genre(e.g, Science Fiction)")
 
     def __str__(self):
         """string for representing the Model Object(in admin site)"""
         return self.name
 
 class Language(models.Model):
-    name=models.CharField(max_length=200, help_text='Enter the books natural language eg English, French etc')
+    name=models.CharField(max_length=255, help_text='Enter the books natural language eg English, French etc')
 
     def __str__(self):
         '''String for representing the model object in the admin site'''
@@ -23,7 +23,7 @@ class Language(models.Model):
 
 class Book(models.Model):
     '''This model stores info about the books available in the library. Not a specific copy of a book'''
-    title=models.CharField(max_length=200)
+    title=models.CharField(max_length=255)
     author=models.ForeignKey('Author',on_delete=models.SET_NULL,null=True,related_name="related_name")
     # Foreign Key used because book can only have one author, but authors can have multiple books
     # Author as a string rather than object because it hasn't been declared yet in file.
@@ -59,7 +59,7 @@ class BookInstance(models.Model):
     about whether the copy is available or on what date it is expected back'''
     # id=models.UUIDField(primary_key=True,default=uuid.uuid4, help_text='Unique ID FOR THIS PARTICULAR BOOK ACROSSS WHOLE LIBRARY')
     book = models.ForeignKey(Book, on_delete=models.RESTRICT,related_name="related_name")
-    imprint = models.CharField(max_length=200, help_text='Version details', default='v2')
+    imprint = models.CharField(max_length=255, help_text='Version details', default='v2')
     due_back=models.DateField(null=True, blank=True)
 
     LOAN_STATUS=(
@@ -80,8 +80,8 @@ class BookInstance(models.Model):
 
 class Author(models.Model):
     '''Model representing an author'''
-    first_name=models.CharField(max_length=100)
-    last_name=models.CharField(max_length=100)
+    first_name=models.CharField(max_length=255)
+    last_name=models.CharField(max_length=255)
     date_of_birth=models.DateField(null=True, blank=True)
     date_of_death=models.DateField('Died', null=True, blank=True)
 
@@ -96,4 +96,12 @@ class Author(models.Model):
     def __str__(self):
         '''String for representing the model object'''
         return f'{self.last_name},{self.first_name}'
+
+
+
+class Review(models.Model):
+    name=models.CharField(max_length=255)
+    date_of_review=models.DateTimeField(auto_now_add=True)
+    description=models.TextField()
+    book=models.ForeignKey(Book,on_delete=models.CASCADE,related_name='reviews')
 
