@@ -31,6 +31,12 @@ This endpoint also accepts a post request and allows clients to add to the list 
 "books": "https://sotomi-local-library-api.herokuapp.com/books/2"
 This endpoint will return the detail page of a book instance if it exist. it supports put method for all instances and delete methods for only instances without any copies in the system.
 
+We also have nested routers for this model. Each books review can be accessed with 
+"books": "https://sotomi-local-library-api.herokuapp.com/books/2/reviews"
+
+and an individual review for that particular book can be access with 
+"books": "https://sotomi-local-library-api.herokuapp.com/books/2/reviews/2"
+
 2. Authors/
 "authors": "https://sotomi-local-library-api.herokuapp.com/authors/",,
 
