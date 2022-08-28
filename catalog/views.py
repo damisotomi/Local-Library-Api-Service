@@ -7,7 +7,7 @@ from rest_framework.filters import SearchFilter,OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 # Create your views here.
 
-class Book(ModelViewSet):
+class BookViewSet(ModelViewSet):
     queryset= Book.objects.select_related('author','language').prefetch_related('genre','related_name').all()
     serializer_class=BookSerializer
     filter_backends=[DjangoFilterBackend,SearchFilter,OrderingFilter]
@@ -24,19 +24,22 @@ class Book(ModelViewSet):
             self.perform_destroy(instance)
             return Response(status=status.HTTP_204_NO_CONTENT)
 
-class Author(ModelViewSet):
+class AuthorViewSet(ModelViewSet):
     queryset= Author.objects.all()
     serializer_class=AuthorSerializer
 
-class Genre(ModelViewSet):
+class GenreViewSet(ModelViewSet):
     queryset= Genre.objects.all()
     serializer_class=GenreSerializer
 
-class Language(ModelViewSet):
+class LanguageViewSet(ModelViewSet):
     queryset= Language.objects.all()
     serializer_class=LanguageSerializer
 
 
-class Review(ModelViewSet):
-    queryset=Review.objects.all()
+class ReviewViewSet(ModelViewSet):
     serializer_class=ReviewSerializer
+
+    def get_queryset(self):
+        return Review.objects.filter(book_id=self.kwargs['book_pk'])
+    

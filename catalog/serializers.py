@@ -66,4 +66,4 @@ class LanguageSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.Review
-        fields=['id','name','descriptrion','book']
+        fields=['id','name','description','book']

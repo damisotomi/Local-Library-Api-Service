@@ -6,13 +6,13 @@ from pprint import pprint
 
 
 router=routers.DefaultRouter()
-router.register('books',views.Book,basename='books')
-router.register('authors',views.Author)
-router.register('genre',views.Genre)
-router.register('language',views.Language)
+router.register('books',views.BookViewSet,basename='books')
+router.register('authors',views.AuthorViewSet,basename='authors')
+router.register('genre',views.GenreViewSet,basename='genre')
+router.register('language',views.LanguageViewSet,basename='language')
 pprint(router.urls)
 
 book_router=routers.NestedDefaultRouter(router,'books',lookup='book')
-book_router.register('reviews',views.Review,basename='book-reviews')
+book_router.register('reviews',views.ReviewViewSet,basename='book-reviews')
 pprint(book_router.urls)
 urlpatterns=router.urls +book_router.urls
