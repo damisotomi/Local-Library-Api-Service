@@ -61,3 +61,9 @@ class LanguageSerializer(serializers.ModelSerializer):
     def book_count(self,language:models.Language):
         return language.language.count()
         # return models.Book.objects.filter(language_id=language.id).count()
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=models.Review
+        fields=['id','name','descriptrion','book']

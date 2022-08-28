@@ -1,5 +1,5 @@
-from .models import Book, BookInstance,Author, Genre,Language
-from .serializers import BookSerializer,AuthorSerializer,GenreSerializer,LanguageSerializer
+from .models import Book, BookInstance,Author, Genre,Language,Review
+from .serializers import BookSerializer,AuthorSerializer,GenreSerializer,LanguageSerializer, ReviewSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from rest_framework import status
@@ -36,3 +36,7 @@ class Language(ModelViewSet):
     queryset= Language.objects.all()
     serializer_class=LanguageSerializer
 
+
+class Review(ModelViewSet):
+    queryset=Review.objects.all()
+    serializer_class=ReviewSerializer
