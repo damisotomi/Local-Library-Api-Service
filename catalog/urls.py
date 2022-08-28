@@ -15,4 +15,4 @@ pprint(router.urls)
 book_router=routers.NestedDefaultRouter(router,'books',lookup='book')
 book_router.register('reviews',views.Review,basename='book-reviews')
 pprint(book_router.urls)
-urlpatterns=router.urls
+urlpatterns=router.urls +book_router.urls
