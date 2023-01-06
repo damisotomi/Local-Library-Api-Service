@@ -57,7 +57,7 @@ class Book(models.Model):
 class BookInstance(models.Model):
     '''This model represents a specific copy of a book that someone might borrow and includes information
     about whether the copy is available or on what date it is expected back'''
-    # id=models.UUIDField(primary_key=True,default=uuid.uuid4, help_text='Unique ID FOR THIS PARTICULAR BOOK ACROSSS WHOLE LIBRARY')
+    id=models.UUIDField(primary_key=True,default=uuid.uuid4, help_text='Unique ID FOR THIS PARTICULAR BOOK ACROSSS WHOLE LIBRARY')
     book = models.ForeignKey(Book, on_delete=models.RESTRICT,related_name="related_name")
     imprint = models.CharField(max_length=255, help_text='Version details', default='v2')
     due_back=models.DateField(null=True, blank=True)
