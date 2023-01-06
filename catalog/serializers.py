@@ -3,14 +3,20 @@ from rest_framework import serializers
 from django.db.models import F
 
 
+class SimpleGenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=models.Genre
+        fields=['id','name']
+
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model=models.Book
         fields=['id','title','author','summary','isbn','genre','language','total_copies','available_copies','onLoan_copies']
 
-    author=serializers.StringRelatedField()
-    genre=serializers.SerializerMethodField('genre_name')
-    language=serializers.StringRelatedField()
+    # author=serializers.StringRelatedField()
+    # genre=serializers.SerializerMethodField('genre_name')
+    # genre=SimpleGenreSerializer()
+    # language=serializers.StringRelatedField()
     total_copies=serializers.SerializerMethodField('copies_count')
     available_copies=serializers.SerializerMethodField('available_copies_count')
     onLoan_copies=serializers.SerializerMethodField('onloan_copies_count')
